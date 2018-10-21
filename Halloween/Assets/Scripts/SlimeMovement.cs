@@ -14,8 +14,8 @@ public class SlimeMovement : MonoBehaviour {
     public MovementValues RollingGroundMovement;
 
     [Header("Events")]
-    public UnityEvent landed;
-    public UnityEvent takeOff;
+    public UnityEvent onLanding;
+    public UnityEvent onTakeOff;
 
     public UnityEvent startedRolling;
     public UnityEvent stoppedRolling;
@@ -41,12 +41,12 @@ public class SlimeMovement : MonoBehaviour {
                 if(value==true)
                 {
                     animator.SetBool("onGround", true);
-                    landed.Invoke();
+                    onLanding.Invoke();
                 }
                 else
                 {
                     animator.SetBool("onGround", false);
-                    takeOff.Invoke();
+                    onTakeOff.Invoke();
                 }
             }
         }
